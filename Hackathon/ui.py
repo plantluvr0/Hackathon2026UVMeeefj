@@ -1,4 +1,5 @@
 import io
+import pandas as pd
 import streamlit as st
 import pymupdf
 from streamlit import session_state as ss
@@ -7,6 +8,9 @@ from streamlit_pdf_viewer import pdf_viewer
 # PATHS TO LOCAL PDF TEMPLATES
 TEMPLATE_1 = "path/to/template1.pdf"
 TEMPLATE_2 = "path/to/template2.pdf"
+
+# PATH TO PATIENT CSV
+PATIENTS_CSV = "path/to/patients.csv"
 
 # session state
 if 'pdf_ref' not in ss:
@@ -22,6 +26,19 @@ form_fields = [
 for field in form_fields:
     if field not in ss:
         ss[field] = ""
+
+# patient lookup
+lookup_id = st.text_input("Patient ID")
+if st.button("Load Patient"):
+    df = pd.read_csv(PATIENTS_CSV, dtype=str).fillna("")
+    match = df[df["id_number"] == lookup_id.strip()]
+    if not match.empty:
+        row = match.iloc[0].to_dict()
+        for field in form_fields:
+            ss[field] = row.get(field, "")
+        st.success(f"Loaded patient {lookup_id}")
+    else:
+        st.error(f"No patient found with ID {lookup_id}")
 
 # template
 col1, col2 = st.columns(2)
@@ -65,12 +82,9 @@ if submitted and ss.pdf_ref:
         "insurance":                ss.insurance,
         "primary_symptoms_summary": ss.primary_symptoms_summary,
     }
-
     doc = pymupdf.open(ss.pdf_ref)
     page = doc[0]
-
     widget_names = {w.field_name: w for w in page.widgets()} if page.widgets() else {}
-
     if widget_names:
         for key, value in data.items():
             if key in widget_names:
@@ -97,7 +111,6 @@ if submitted and ss.pdf_ref:
             page.insert_text((x, y + 10), "Primary Symptoms Summary:", fontsize=11)
             rect = pymupdf.Rect(x, y + 25, page.rect.width - 50, y + 120)
             page.insert_textbox(rect, data["primary_symptoms_summary"], fontsize=11)
-
     buf = io.BytesIO()
     doc.save(buf)
     ss.output_pdf = buf.getvalue()
