@@ -62,6 +62,7 @@ if __name__ == '__main__':
                 )
                 if count == 0:
                     response = gemini.gemini_call(message)
+                    response = secure_io.decrypt(response)
                     ss.api_response = response
 
             st.success(f"Loaded patient {lookup_id} and processed via API.")
