@@ -18,7 +18,7 @@ class Patient(BaseModel):
 
 def gemini_call(message):
     #set up client
-    client = genai.Client(api_key="AIzaSyB1HR9JIEjGs-au_J_KHA1QE5JpUXRmQOU")
+    client = genai.Client(api_key="AIzaSyCmH7xG-KIX0g7e2BzT_8XWKTlvmP4xmfw")
     config = types.GenerateContentConfig(
         #set the system message
         system_instruction="you are a healthcare professional who works in a hospital"
