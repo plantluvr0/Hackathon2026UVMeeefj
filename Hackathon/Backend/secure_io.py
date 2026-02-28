@@ -45,7 +45,7 @@ def encrypt(filename :str) -> tuple:
         replace_proprietary(patient)
     return patient_set, header
 
-def inject_data(filename) -> tuple:
+def inject_data() -> tuple:
     return encrypt(filename)
     pass
 if __name__ == "__main__":
