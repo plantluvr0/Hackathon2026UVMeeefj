@@ -6,7 +6,8 @@ from streamlit import session_state as ss
 from streamlit_pdf_viewer import pdf_viewer
 #personal
 import gemini
-import secure_io
+from Hackathon import *
+from Hackathon.Backend.secure_io import inject_data
 
 if __name__ == '__main__':
     #print ui
@@ -143,7 +144,7 @@ if __name__ == '__main__':
                        "to fill out an admissions form from the given template into a json style format.")
             response = gemini.gemini_call(message)
 
-            reponse
+
 
 
 
