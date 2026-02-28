@@ -46,8 +46,5 @@ def encrypt(filename :str) -> tuple:
     return patient_set, header
 
 def inject_data() -> tuple:
-    return encrypt(filename)
-    pass
-if __name__ == "__main__":
+    return encrypt("..\patient_info.csv")
 
-    encrypt("..\patient_info.csv")
