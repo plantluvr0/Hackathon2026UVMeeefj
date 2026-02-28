@@ -26,7 +26,7 @@ def replace_proprietary(patient_data: list) -> list:
     curr_data = ""
 
     def store_proprietary(enc_val, real_val):
-        with open("../key_val.csv", 'a') as key_file:
+        with open("key_val.csv", 'a') as key_file:
             writer = csv.writer(key_file)
             writer.writerow([enc_val, real_val])
 
@@ -40,7 +40,17 @@ def replace_proprietary(patient_data: list) -> list:
 
 
 def decrypt(fmt_data: dict) -> list:
-    return []
+    clean_data = []
+    with open("key_val.csv", 'r') as key_file:
+        reader = csv.reader(key_file)
+        for _ , element in fmt_data:
+            clean_data.append(element)
+            for row in reader:
+                if row[0] == element:
+                    clean_data[-1] = row[1]
+
+
+    return clean_data
 
 
 def encrypt(filename: str) -> tuple:
@@ -52,3 +62,4 @@ def encrypt(filename: str) -> tuple:
 
 def inject_data() -> tuple:
     return encrypt("patient_info.csv")
+
