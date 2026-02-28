@@ -12,6 +12,7 @@ def read_in(filename : str ) -> list:
         for row in reader:
             patient_list.append(row)
         return patient_list
+
 def mask(info :str, index: int) -> str:
 
     masked_info = str(index) +
