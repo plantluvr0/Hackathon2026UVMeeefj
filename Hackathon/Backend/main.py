@@ -131,7 +131,7 @@ if __name__ == '__main__':
 
 
     #read data
-    patients, labels = inject_data()
+    patients, labels = secure_io.inject_data()
 
     patient_id = "foo"
     for patient in patients:
@@ -140,6 +140,7 @@ if __name__ == '__main__':
             message = (f"past information = {formatted_info}. using the patients past info fill out the information needed"
                        "to fill out an admissions form from the given template into a json style format.")
             response = gemini.gemini_call(message)
+            response = secure_io.decrypt(response)
 
 
 
