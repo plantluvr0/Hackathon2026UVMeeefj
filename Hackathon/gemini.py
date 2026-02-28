@@ -7,12 +7,13 @@ def gemini_call(message):
     client = genai.Client(api_key=os.getenv(API_KEY))
     config = types.GenerateContentConfig(
         #set the system message
-        system_instruction="you are a ",
+        system_instruction="you are a healthcare professional who works in a hospital"
+                           "who fills out admission and dismissal forms for patients",
         #response type
         response_mime_type = "application/json",
         #schema
         response_schema={
-            "type": "OBJECT",
+            "type": "Admission",
             "properties": {
                 "answer": {"type": "STRING"},
                 "confidence_score": {"type": "NUMBER"}
