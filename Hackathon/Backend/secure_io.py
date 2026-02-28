@@ -26,10 +26,10 @@ def replace_proprietary(patient_data: list) -> list:
     curr_data = ""
 
     def store_proprietary(enc_val, real_val):
-        with open("key_val.csv", 'a') as key_file:
+        with open("key_val.csv", 'a', newline ='') as key_file:
             writer = csv.writer(key_file)
             writer.writerow([enc_val, real_val])
-
+        key_file.close()
     for i in range(1, 7):
         curr_data = patient_data[i]
         sec_data = mask(patient_data[i])
