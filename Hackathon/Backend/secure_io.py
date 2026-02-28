@@ -16,8 +16,8 @@ def read_in(filename: str) -> tuple:
 
 
 def mask(info: str) -> str:
-    mask_num = int(hex(secrets.randbits(len(info))), 0)
-    hex_info = int(info.encode().hex(), 0)
+    mask_num = int(hex(secrets.randbits(len(info))), 16)
+    hex_info = int(info.encode().hex(), 16)
     masked_info = mask_num ^ hex_info
     return str(masked_info)
 

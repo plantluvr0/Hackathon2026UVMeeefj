@@ -1,1 +1,5 @@
 google-genai>=1.65.0
+pandas
+streamlit
+pymupdf
+streamlit-pdf-viewer
