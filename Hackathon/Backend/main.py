@@ -1,16 +1,31 @@
-# This is a sample Python script.
+#personal
+import gemini
+import secure_io
 
-# Press Ctrl+F5 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press F9 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    #print ui
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    #read data
+    patients = secure_io.read_csv('patients.csv')
+
+    #enter patient that you want
+
+    patient_name = "foo"
+    for patient in patients:
+        if patient[1] == patient[patient_name]:
+            formatted_info = [patients[0], patient]
+            message = (f"past information = {formatted_info}. using the patients past info fill out the information needed"
+                       "to fill out an admissions form from the given template into a json style format.")
+            response = gemini.gemini_call(message)
+
+
+
+
+
+
+
+
+
+
+
+
