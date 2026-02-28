@@ -133,9 +133,8 @@ if __name__ == '__main__':
     #read data
     patients, labels = secure_io.inject_data()
 
-    patient_id = "foo"
     for patient in patients:
-        if patient[0] == patient[patient_id]:
+        if patient[1] == "John Smith":
             formatted_info = [labels, patient]
             message = (f"past information = {formatted_info}. using the patients past info fill out the information needed"
                        "to fill out an admissions form from the given template into a json style format.")
