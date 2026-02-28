@@ -1,0 +1,5 @@
+ID,Name,Age,Gender,DateOfBirth,Phone,Address,AdmissionDate,Diagnosis,Doctor,RoomNumber,Insurance
+1001,John Smith,45,Male,1979-03-12,555-123-4567,123 Maple St,2026-02-20,Hypertension,Dr. Adams,301,Aetna
+1002,Emily Johnson,32,Female,1993-07-08,555-987-6543,456 Oak Ave,2026-02-22,Asthma,Dr. Lee,214,BlueCross
+1003,Michael Brown,60,Male,1965-01-30,555-222-1111,789 Pine Rd,2026-02-25,Diabetes,Dr. Patel,118,UnitedHealth
+1004,Sarah Davis,27,Female,1998-11-15,555-444-3333,321 Birch Ln,2026-02-26,Migraine,Dr. Chen,405,Cigna
