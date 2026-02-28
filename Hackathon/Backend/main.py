@@ -15,7 +15,10 @@ if __name__ == '__main__':
     TEMPLATE_2 = "path/to/template2.pdf"
 
     # PATH TO PATIENT CSV
-    PATIENTS_CSV = "path/to/patients.csv"
+    PATIENTS_CSV = "patient_info.csv"
+
+    #df = pd.read_csv(PATIENTS_CSV, dtype=str).fillna("")
+    patients, labels = secure_io.inject_data()
 
     # session state
     if 'pdf_ref' not in ss:
@@ -34,14 +37,30 @@ if __name__ == '__main__':
 
     # patient lookup
     lookup_id = st.text_input("Patient ID")
+
     if st.button("Load Patient"):
-        df = pd.read_csv(PATIENTS_CSV, dtype=str).fillna("")
         match = df[df["id_number"] == lookup_id.strip()]
+
         if not match.empty:
             row = match.iloc[0].to_dict()
+
+            # 1. Update Session State for the UI fields
             for field in form_fields:
                 ss[field] = row.get(field, "")
-            st.success(f"Loaded patient {lookup_id}")
+
+            # 2. Call the API using the loaded data
+            with st.spinner("Fetching data from Gemini..."):
+                # Prepare your message using the 'row' we just found
+                message = (f"Patient information: {row}. Use this info to format an "
+                           "admissions form into a JSON style format.")
+
+                # Make the API call
+                response = gemini.gemini_call(message)
+
+                # Store or display the response
+                st.session_state['api_response'] = response
+
+            st.success(f"Loaded patient {lookup_id} and processed via API.")
         else:
             st.error(f"No patient found with ID {lookup_id}")
 
@@ -128,17 +147,6 @@ if __name__ == '__main__':
     elif ss.pdf_ref:
         with open(ss.pdf_ref, "rb") as f:
             pdf_viewer(input=f.read(), width=700)
-
-
-    #read data
-    patients, labels = secure_io.inject_data()
-
-    for patient in patients:
-        if patient[1] == "John Smith":
-            formatted_info = [labels, patient]
-            message = (f"past information = {formatted_info}. using the patients past info fill out the information needed"
-                       "to fill out an admissions form from the given template into a json style format.")
-            response = gemini.gemini_call(message)
 
 
 
