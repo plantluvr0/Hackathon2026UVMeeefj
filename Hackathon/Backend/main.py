@@ -11,8 +11,11 @@ import gemini
 import secure_io
 
 if __name__ == '__main__':
-    #globals
-    count = 0
+    # session-scoped globals
+    # `count` was intended to prevent multiple Gemini requests but it resets every rerun;
+    # use session state instead.
+    if 'gemini_called' not in ss:
+        ss.gemini_called = False
 
     # PATHS TO LOCAL PDF TEMPLATES
     TEMPLATE_1 = "pdfs/admission-form-pdf.pdf"
@@ -60,10 +63,15 @@ if __name__ == '__main__':
                     f"Patient information: {found_patient}. "
                     "Use this info to format an admissions form into a JSON style format."
                 )
-                if count == 0:
-                    response = gemini.gemini_call(message)
-                    response = secure_io.decrypt(response)
-                    ss.api_response = response
+                if not ss.gemini_called:
+                    try:
+                        response = gemini.gemini_call(message)
+                        response = secure_io.decrypt(response)
+                        ss.api_response = response
+                        ss.gemini_called = True
+                    except Exception as e:
+                        # rate limits or other errors bubble up here
+                        st.error(f"API request failed: {e}")
 
             st.success(f"Loaded patient {lookup_id} and processed via API.")
         else:
