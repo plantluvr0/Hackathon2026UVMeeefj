@@ -1,5 +1,21 @@
-ID,Name,Age,Gender,DateOfBirth,Phone,Address,AdmissionDate,Diagnosis,Doctor,RoomNumber,Insurance
-1001,John Smith,45,Male,1979-03-12,555-123-4567,123 Maple St,2026-02-20,Hypertension,Dr. Adams,301,Aetna
-1002,Emily Johnson,32,Female,1993-07-08,555-987-6543,456 Oak Ave,2026-02-22,Asthma,Dr. Lee,214,BlueCross
-1003,Michael Brown,60,Male,1965-01-30,555-222-1111,789 Pine Rd,2026-02-25,Diabetes,Dr. Patel,118,UnitedHealth
-1004,Sarah Davis,27,Female,1998-11-15,555-444-3333,321 Birch Ln,2026-02-26,Migraine,Dr. Chen,405,Cigna
+ID,Name,Age,Gender,DateOfBirth,Phone,Address,AdmissionDate,Diagnosis,Doctor,RoomNumber,Insurance,ConditionSummary
+1001,John Smith,34,Male,1991-01-02,555-000-0001,1 Main St,2026-02-01,Flu,Dr. Adams,101,Aetna,Patient has mild influenza symptoms. Rest and hydration have been recommended. Prognosis is good.
+1002,Emily Johnson,28,Female,1997-02-03,555-000-0002,2 Main St,2026-02-02,Asthma,Dr. Lee,102,BlueCross,Patient reports intermittent asthma flare-ups. Inhaler treatment is effective so far. Condition is stable.
+1003,Michael Brown,52,Male,1973-03-04,555-000-0003,3 Main St,2026-02-03,Diabetes,Dr. Patel,103,UnitedHealth,Patient has type 2 diabetes under monitoring. Blood glucose is moderately controlled. Lifestyle adjustments are ongoing.
+1004,Sarah Davis,41,Female,1984-04-05,555-000-0004,4 Main St,2026-02-04,Migraine,Dr. Chen,104,Cigna,Patient experiences recurring migraines. Medication has reduced severity. Follow-up is scheduled.
+1005,David Wilson,36,Male,1989-05-06,555-000-0005,5 Main St,2026-02-05,Flu,Dr. Adams,105,Aetna,Patient has mild influenza symptoms. Rest and hydration have been recommended. Prognosis is good.
+1006,Olivia Martinez,29,Female,1996-06-07,555-000-0006,6 Main St,2026-02-06,Asthma,Dr. Lee,106,BlueCross,Patient reports intermittent asthma flare-ups. Inhaler treatment is effective so far. Condition is stable.
+1007,James Anderson,63,Male,1962-07-08,555-000-0007,7 Main St,2026-02-07,Diabetes,Dr. Patel,107,UnitedHealth,Patient has type 2 diabetes under monitoring. Blood glucose is moderately controlled. Lifestyle adjustments are ongoing.
+1008,Sophia Taylor,22,Female,2003-08-09,555-000-0008,8 Main St,2026-02-08,Migraine,Dr. Chen,108,Cigna,Patient experiences recurring migraines. Medication has reduced severity. Follow-up is scheduled.
+1009,Robert Thomas,47,Male,1978-09-10,555-000-0009,9 Main St,2026-02-09,Flu,Dr. Adams,109,Aetna,Patient has mild influenza symptoms. Rest and hydration have been recommended. Prognosis is good.
+1010,Ava Hernandez,31,Female,1994-10-11,555-000-0010,10 Main St,2026-02-10,Asthma,Dr. Lee,110,BlueCross,Patient reports intermittent asthma flare-ups. Inhaler treatment is effective so far. Condition is stable.
+1011,William Moore,55,Male,1970-11-12,555-000-0011,11 Main St,2026-02-11,Diabetes,Dr. Patel,111,UnitedHealth,Patient has type 2 diabetes under monitoring. Blood glucose is moderately controlled. Lifestyle adjustments are ongoing.
+1012,Isabella Martin,38,Female,1987-12-13,555-000-0012,12 Main St,2026-02-12,Migraine,Dr. Chen,112,Cigna,Patient experiences recurring migraines. Medication has reduced severity. Follow-up is scheduled.
+1013,Joseph Jackson,44,Male,1981-01-14,555-000-0013,13 Main St,2026-02-13,Flu,Dr. Adams,113,Aetna,Patient has mild influenza symptoms. Rest and hydration have been recommended. Prognosis is good.
+1014,Mia Thompson,26,Female,1999-02-15,555-000-0014,14 Main St,2026-02-14,Asthma,Dr. Lee,114,BlueCross,Patient reports intermittent asthma flare-ups. Inhaler treatment is effective so far. Condition is stable.
+1015,Charles White,59,Male,1966-03-16,555-000-0015,15 Main St,2026-02-15,Diabetes,Dr. Patel,115,UnitedHealth,Patient has type 2 diabetes under monitoring. Blood glucose is moderately controlled. Lifestyle adjustments are ongoing.
+1016,Charlotte Lopez,33,Female,1992-04-17,555-000-0016,16 Main St,2026-02-16,Migraine,Dr. Chen,116,Cigna,Patient experiences recurring migraines. Medication has reduced severity. Follow-up is scheduled.
+1017,Thomas Gonzalez,48,Male,1977-05-18,555-000-0017,17 Main St,2026-02-17,Flu,Dr. Adams,117,Aetna,Patient has mild influenza symptoms. Rest and hydration have been recommended. Prognosis is good.
+1018,Amelia Perez,37,Female,1988-06-19,555-000-0018,18 Main St,2026-02-18,Asthma,Dr. Lee,118,BlueCross,Patient reports intermittent asthma flare-ups. Inhaler treatment is effective so far. Condition is stable.
+1019,Christopher Hall,62,Male,1963-07-20,555-000-0019,19 Main St,2026-02-19,Diabetes,Dr. Patel,119,UnitedHealth,Patient has type 2 diabetes under monitoring. Blood glucose is moderately controlled. Lifestyle adjustments are ongoing.
+1020,Harper Young,24,Female,2001-08-21,555-000-0020,20 Main St,2026-02-20,Migraine,Dr. Chen,120,Cigna,Patient experiences recurring migraines. Medication has reduced severity. Follow-up is scheduled.
