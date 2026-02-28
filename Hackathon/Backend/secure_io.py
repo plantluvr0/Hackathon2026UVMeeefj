@@ -13,7 +13,7 @@ def read_in(filename : str ) -> list:
             patient_list.append(row)
         return patient_list
 def mask(info :str, index: int) -> str:
-        random.Random(int)
+
     masked_info = str(index) +
 
     return masked_info
