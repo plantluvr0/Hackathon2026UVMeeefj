@@ -15,8 +15,8 @@ if __name__ == '__main__':
     count = 0
 
     # PATHS TO LOCAL PDF TEMPLATES
-    TEMPLATE_1 = "../../../pdfs/admission-form-pdf.pdf"
-    TEMPLATE_2 = "../../../pdfs/test_form.pdf"
+    TEMPLATE_1 = "pdfs/admission-form-pdf.pdf"
+    TEMPLATE_2 = "pdfs/test_form.pdf"
 
     # PATH TO PATIENT CSV
     PATIENTS_CSV = os.path.join(os.path.dirname(__file__), "patient_info.csv")
