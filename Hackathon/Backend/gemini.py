@@ -6,7 +6,7 @@ from google.genai import types
 from pydantic import BaseModel
 
 # require API key to be present in environment; make variable global for reuse
-API_KEY = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+API_KEY = "AIzaSyDniPDJEUeWjH6qWM2jpBBcLTB9zz_6mzc"
 if not API_KEY:
     raise RuntimeError("Gemini API key not found; set GEMINI_API_KEY or GOOGLE_API_KEY in environment")
 
